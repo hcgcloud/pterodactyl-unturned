@@ -1,6 +1,7 @@
 # pterodactyl-unturned
-![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/hcgcloud/pterodactyl-unturned.svg?style=flat)
-![Docker Pulls](https://img.shields.io/docker/pulls/hcgcloud/pterodactyl-unturned.svg?style=flat)
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/hcgcloud/pterodactyl-unturned.svg?style=flat)](https://hub.docker.com/r/hcgcloud/pterodactyl-unturned)
+[![Docker Pulls](https://img.shields.io/docker/pulls/hcgcloud/pterodactyl-unturned.svg?style=flat)](https://hub.docker.com/r/hcgcloud/pterodactyl-unturned)
+[![Discord](https://img.shields.io/discord/609764930899673092)](https://discord.gg/5KnNVfv)
 
 Pterodactyl Unturned using Unturned Dedicated Server
 
