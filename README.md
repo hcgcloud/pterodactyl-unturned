@@ -13,3 +13,5 @@ Pterodactyl Unturned using Unturned Dedicated Server
 
 ## How to use
 Just simply import `egg-unturned--d-s.json` to your panel and then you can create a server.
+
+Also be noticed that you should allocate `port+1` and `port+2` to a server.
