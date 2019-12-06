@@ -9,7 +9,7 @@ fi
 
 if [ "${ROCKET_AUTOUPDATE}" == "1" ]; then
     echo "Downloading RocketMod..."
-    curl -o Rocket.zip "https://ci.rocketmod.net/job/Rocket.Unturned/lastSuccessfulBuild/artifact/Rocket.Unturned/bin/Release/Rocket.zip"
+    curl -o Rocket.zip "https://github.com/RocketMod/Rocket.Unturned/releases/download/4.9.3.0/Rocket.Unturned.zip"
     unzip -o -q Rocket.zip
     mv /home/container/Scripts/Linux/RocketLauncher.exe /home/container/RocketLauncher.exe
 fi
