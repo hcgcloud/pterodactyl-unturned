@@ -7,7 +7,12 @@ if [ "${GAME_AUTOUPDATE}" == "1" ]; then
     ./steam/steamcmd.sh +@sSteamCmdForcePlatformBitness 64 +login anonymous +force_install_dir /home/container +app_update 1110390 +quit
 fi
 
-cp -r /home/container/Extras/Rocket.Unturned /home/container/Modules/Rocket.Unturned
+if [ "${ROCKET_AUTOUPDATE}" == "1" ]; then
+    echo "Downloading RocketMod..."
+    curl -o Rocket.zip -L "https://github.com/RocketMod/Rocket.Unturned/releases/download/4.9.3.0/Rocket.Unturned.zip"
+    unzip -o -q Rocket.zip
+    mv /home/container/Scripts/Linux/RocketLauncher.exe /home/container/RocketLauncher.exe
+fi
 
 ulimit -n 2048
 export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
