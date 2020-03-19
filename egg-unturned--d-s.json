@@ -8,7 +8,7 @@
     "author": "service@hcgcloud.com",
     "description": "Unturned dedicated server with Rocketmod.",
     "image": "hcgcloud\/pterodactyl-unturned:latest",
-    "startup": ".\/Unturned_Headless.x86_64 -batchmode -nographics +secureserver\/unturned -port {{SERVER_PORT}}",
+    "startup": ".\/Unturned_Headless.x86_64 -batchmode -nographics +secureserver\/unturned",
     "config": {
         "files": "{\r\n    \"Servers\/unturned\/Server\/Commands.dat\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"Port\": \"Port {{server.build.default.port}}\",\r\n            \"Maxplayers\": \"Maxplayers {{server.build.env.MAX_PLAYERS}}\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \"Loading level: 100%\",\r\n    \"userInteraction\": []\r\n}",
