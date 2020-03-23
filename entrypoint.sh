@@ -9,8 +9,11 @@ fi
 
 cp -r /home/container/Extras/Rocket.Unturned /home/container/Modules/Rocket.Unturned
 
+cp -f /home/container/linux64/steamclient.so /home/container/Unturned_Headless_Data/Plugins/x86_64/steamclient.so
+
 ulimit -n 2048
-export LD_LIBRARY_PATH=$HOME/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/Unturned_Headless_Data/Plugins/x86_64/
+export TERM=xterm
 
 MODIFIED_STARTUP=$(eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g'))
 echo ":/home/container$ ${MODIFIED_STARTUP}"

@@ -8,7 +8,7 @@
     "author": "service@hcgcloud.com",
     "description": "Unturned dedicated server with Rocketmod.",
     "image": "hcgcloud\/pterodactyl-unturned:latest",
-    "startup": ".\/Unturned_Headless.x86_64 -batchmode -nographics +secureserver\/unturned",
+    "startup": ".\/Unturned_Headless.x86_64 -batchmode -nographics -ThreadedConsole +secureserver\/unturned",
     "config": {
         "files": "{\r\n    \"Servers\/unturned\/Server\/Commands.dat\": {\r\n        \"parser\": \"file\",\r\n        \"find\": {\r\n            \"Port\": \"Port {{server.build.default.port}}\",\r\n            \"Maxplayers\": \"Maxplayers {{server.build.env.MAX_PLAYERS}}\"\r\n        }\r\n    }\r\n}",
         "startup": "{\r\n    \"done\": \"Loading level: 100%\",\r\n    \"userInteraction\": []\r\n}",
@@ -17,7 +17,7 @@
     },
     "scripts": {
         "installation": {
-            "script": "apt update\r\napt -y --no-install-recommends install curl lib32gcc1 ca-certificates\r\n\r\ncd \/tmp\r\ncurl -sSL -o steamcmd.tar.gz https:\/\/steamcdn-a.akamaihd.net\/client\/installer\/steamcmd_linux.tar.gz\r\n\r\nmkdir -p \/mnt\/server\/steam\r\ntar -xzvf steamcmd.tar.gz -C \/mnt\/server\/steam\r\ncd \/mnt\/server\/steam\r\n\r\nchown -R root:root \/mnt\r\n\r\nexport HOME=\/mnt\/server\r\n.\/steamcmd.sh +@sSteamCmdForcePlatformBitness 64 +login anonymous +force_install_dir \/mnt\/server +app_update 1110390 +quit\r\n\r\nmkdir -p \/mnt\/server\/Servers\/unturned\/Server\r\necho -e \"Port 27015\\nMaxplayers 24\" > \/mnt\/server\/Servers\/unturned\/Server\/Commands.dat\r\n\r\nmkdir -p \/mnt\/server\/lib\r\ncp -v linux64\/steamclient.so ..\/lib\/steamclient.so",
+            "script": "apt update\r\napt -y --no-install-recommends install curl lib32gcc1 ca-certificates\r\n\r\ncd \/tmp\r\ncurl -sSL -o steamcmd.tar.gz https:\/\/steamcdn-a.akamaihd.net\/client\/installer\/steamcmd_linux.tar.gz\r\n\r\nmkdir -p \/mnt\/server\/steam\r\ntar -xzvf steamcmd.tar.gz -C \/mnt\/server\/steam\r\ncd \/mnt\/server\/steam\r\n\r\nchown -R root:root \/mnt\r\n\r\nexport HOME=\/mnt\/server\r\n.\/steamcmd.sh +@sSteamCmdForcePlatformBitness 64 +login anonymous +force_install_dir \/mnt\/server +app_update 1110390 +quit\r\n\r\nmkdir -p \/mnt\/server\/Servers\/unturned\/Server\r\necho -e \"Port 27015\\nMaxplayers 24\" > \/mnt\/server\/Servers\/unturned\/Server\/Commands.dat",
             "container": "ubuntu:16.04",
             "entrypoint": "bash"
         }
