@@ -7,7 +7,9 @@ if [ "${GAME_AUTOUPDATE}" == "1" ]; then
     ./steam/steamcmd.sh +@sSteamCmdForcePlatformBitness 64 +login anonymous +force_install_dir /home/container +app_update 1110390 +quit
 fi
 
-cp -r Extras/Rocket.Unturned Modules/
+if [ "${ROCKET_AUTOUPDATE}" == "1" ]; then
+    cp -r Extras/Rocket.Unturned Modules/
+fi
 
 cp -f linux64/steamclient.so Unturned_Headless_Data/Plugins/x86_64/steamclient.so
 
