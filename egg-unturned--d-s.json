@@ -3,12 +3,13 @@
     "meta": {
         "version": "PTDL_v1"
     },
-    "exported_at": "2019-07-01T12:01:31+08:00",
+    "exported_at": "2020-11-30T03:21:40-05:00",
     "name": "Unturned-DS",
     "author": "service@hcgcloud.com",
     "description": "Unturned dedicated server with Rocketmod.",
+    "features": null,
     "image": "hcgcloud\/pterodactyl-unturned:latest",
-    "startup": ".\/Unturned_Headless.x86_64 -batchmode -nographics -ThreadedConsole -port {{SERVER_PORT}} -maxplayers {{MAX_PLAYERS}} +secureserver\/unturned",
+    "startup": ".\/Unturned_Headless.x86_64 -batchmode -nographics -ThreadedConsole -map {{SERVER_MAP}} -perspective {{PERSPECTIVE}} -mode {{GAMEMODE}} -name {{NAME}} -bind 0.0.0.0 -port {{SERVER_PORT}} -maxplayers {{MAX_PLAYERS}} +secureserver\/{{SERVER_ID}}",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"Loading level: 100%\",\r\n    \"userInteraction\": []\r\n}",
@@ -28,8 +29,8 @@
             "description": "Max players allowed to play in the server",
             "env_variable": "MAX_PLAYERS",
             "default_value": "24",
-            "user_viewable": 1,
-            "user_editable": 0,
+            "user_viewable": true,
+            "user_editable": true,
             "rules": "required|integer|between:1,24"
         },
         {
@@ -37,8 +38,8 @@
             "description": "Input 1 to enable or 0 to disable",
             "env_variable": "ROCKET_AUTOUPDATE",
             "default_value": "1",
-            "user_viewable": 1,
-            "user_editable": 1,
+            "user_viewable": true,
+            "user_editable": true,
             "rules": "required|integer|between:0,1"
         },
         {
@@ -46,9 +47,54 @@
             "description": "Input 1 to enable or 0 to disable",
             "env_variable": "GAME_AUTOUPDATE",
             "default_value": "1",
-            "user_viewable": 1,
-            "user_editable": 1,
+            "user_viewable": true,
+            "user_editable": true,
             "rules": "required|integer|between:0,1"
+        },
+        {
+            "name": "Server Name",
+            "description": "Set your server name in the in game browser",
+            "env_variable": "NAME",
+            "default_value": "Test-Server",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:32"
+        },
+        {
+            "name": "Server ID",
+            "description": "Wan't to run multiple maps with different loot tables changed the value and it will generate a new directory in the servers folder in the file manager",
+            "env_variable": "SERVER_ID",
+            "default_value": "unturned",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20"
+        },
+        {
+            "name": "Difficulty",
+            "description": "Set the difficulty or make it a gold only server examples of input easy, normal, hard and gold.",
+            "env_variable": "GAMEMODE",
+            "default_value": "easy",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20"
+        },
+        {
+            "name": "Perspective",
+            "description": "Change the perspective of the player from first to third or both eg Both, third, first or vehicle",
+            "env_variable": "PERSPECTIVE",
+            "default_value": "first",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20"
+        },
+        {
+            "name": "Server Map",
+            "description": "Change the server map",
+            "env_variable": "SERVER_MAP",
+            "default_value": "Washington",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20"
         }
     ]
 }
