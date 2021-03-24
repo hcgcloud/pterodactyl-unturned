@@ -12,7 +12,7 @@ Pterodactyl Unturned using Unturned Dedicated Server
 - RocketMod integrated
 - Allow administrators to set `Max Players` variable
 - Allow users to configure if they need `RocketMod Auto Update`, `Game Auto Update` or not
-- Change of map,Change of server name,Change of perspective,Change of difficulty and Server ID(if you want to run multiple server configurations etc)
+- Change of map, server name, perspective, difficulty and server id (if you want to run multiple server configurations etc)
 
 ## How to use
 Just simply import `egg-unturned--d-s.json` to your panel and then you can create a server.
