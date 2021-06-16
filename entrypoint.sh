@@ -11,6 +11,9 @@ if [ "${ROCKET_AUTOUPDATE}" == "1" ]; then
     cp -r Extras/Rocket.Unturned Modules/
 fi
 
+mkdir -p .steam/sdk64
+cp -f steam/linux64/steamclient.so .steam/sdk64/steamclient.so
+
 mkdir -p Unturned_Headless_Data/Plugins/x86_64
 cp -f steam/linux64/steamclient.so Unturned_Headless_Data/Plugins/x86_64/steamclient.so
 
